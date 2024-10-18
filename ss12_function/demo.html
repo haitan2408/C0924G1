@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function displayPrime() {
+      let count = 0;
+      let num = 2;
+      while (count < 30) {
+         if(isPrime(num)) {
+             count++;
+             document.writeln(num);
+         }
+          num++;
+      }
+  }
+
+  function isPrime(num) {
+      let isPrime = true;
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) {
+              isPrime = false;
+              break;
+          }
+      }
+      return isPrime;
+  }
+
+  function checkPrime() {
+      let num = +prompt("Mời bạn nhập số để kiểm tra. Yêu cầu phải lớn hơn hoăc bằng 2 và phải là số nguyên");
+      while (num < 2 || num % 1 !== 0) {
+          num = +prompt("Bạn nhập sai định dạng, yêu cầu nhập lại.");
+      }
+      if(isPrime(num)) {
+          document.writeln(num + " là số nguyên tố")
+      } else {
+          document.writeln(num +" không phải là số nguyên tố")
+      }
+  }
+
+  function displayPrime100() {
+      //Hiển thị các số nguyên tố < 100
+      // Không khai báo biến trong vòng lặp
+      for(let num = 2; num <=100; num++) {
+          if (isPrime(num)) {
+              document.writeln(`${num} là số nguyên tố <br>`)
+          }
+      }
+  }
+  
+  function displayPrimeOfArr(arr) {
+      for(let i = 2; i <arr.length; i++) {
+          if (isPrime(arr[i])) {
+              document.writeln(`${arr[i]} là số nguyên tố <br>`)
+          }
+      }
+  }
+
+  displayPrime100();
+</script>
+</body>
+</html>
